@@ -17,9 +17,22 @@ class ViewController: UIViewController {
     
     let data = ["Shahban", "Ramadan", "Shawal", "Rajjab", "DEcember", "April"]
     var filteredData: [String]!
+    
+    var persons: [Person] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let n = NetworkManager()
+        let url = Constants.baseURL + Constants.json1
+        n.fetchData(url: url){ result in
+            switch result {
+            case .success(let persons):
+                self.persons.append(contentsOf: persons)
+            
+            case .failure(let err):
+                print(err)
+            }
+        }
         
         contactsTableView.dataSource = self
         contactsTableView.delegate = self

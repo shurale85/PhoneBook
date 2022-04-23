@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE8A5B22281407700011A1D8 /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A5B21281407700011A1D8 /* PersonModel.swift */; };
+		EE8A5B2428140A2D0011A1D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A5B2328140A2D0011A1D8 /* NetworkManager.swift */; };
+		EE8A5B2628140B6F0011A1D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A5B2528140B6F0011A1D8 /* Constants.swift */; };
 		EE9F40632810165800C749AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F40622810165800C749AD /* AppDelegate.swift */; };
 		EE9F40652810165800C749AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F40642810165800C749AD /* SceneDelegate.swift */; };
 		EE9F40672810165800C749AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F40662810165800C749AD /* ViewController.swift */; };
 		EE9F406A2810165800C749AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE9F40682810165800C749AD /* Main.storyboard */; };
 		EE9F406C2810165B00C749AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE9F406B2810165B00C749AD /* Assets.xcassets */; };
 		EE9F406F2810165B00C749AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE9F406D2810165B00C749AD /* LaunchScreen.storyboard */; };
+		EE9F40842811896F00C749AD /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F40822811896F00C749AD /* ContactCell.swift */; };
+		EE9F40852811896F00C749AD /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9F40832811896F00C749AD /* ContactCell.xib */; };
+		EE9F40872812896500C749AD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F40862812896400C749AD /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE8A5B21281407700011A1D8 /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
+		EE8A5B2328140A2D0011A1D8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EE8A5B2528140B6F0011A1D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EE9F405F2810165800C749AD /* PhoneBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE9F40622810165800C749AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE9F40642810165800C749AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +33,9 @@
 		EE9F406B2810165B00C749AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE9F406E2810165B00C749AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE9F40702810165B00C749AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE9F40822811896F00C749AD /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		EE9F40832811896F00C749AD /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		EE9F40862812896400C749AD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +75,12 @@
 				EE9F406B2810165B00C749AD /* Assets.xcassets */,
 				EE9F406D2810165B00C749AD /* LaunchScreen.storyboard */,
 				EE9F40702810165B00C749AD /* Info.plist */,
+				EE9F40822811896F00C749AD /* ContactCell.swift */,
+				EE9F40832811896F00C749AD /* ContactCell.xib */,
+				EE9F40862812896400C749AD /* DetailsViewController.swift */,
+				EE8A5B21281407700011A1D8 /* PersonModel.swift */,
+				EE8A5B2328140A2D0011A1D8 /* NetworkManager.swift */,
+				EE8A5B2528140B6F0011A1D8 /* Constants.swift */,
 			);
 			path = PhoneBook;
 			sourceTree = "<group>";
@@ -125,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9F40852811896F00C749AD /* ContactCell.xib in Resources */,
 				EE9F406F2810165B00C749AD /* LaunchScreen.storyboard in Resources */,
 				EE9F406C2810165B00C749AD /* Assets.xcassets in Resources */,
 				EE9F406A2810165800C749AD /* Main.storyboard in Resources */,
@@ -138,9 +157,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8A5B22281407700011A1D8 /* PersonModel.swift in Sources */,
+				EE9F40842811896F00C749AD /* ContactCell.swift in Sources */,
 				EE9F40672810165800C749AD /* ViewController.swift in Sources */,
+				EE8A5B2428140A2D0011A1D8 /* NetworkManager.swift in Sources */,
 				EE9F40632810165800C749AD /* AppDelegate.swift in Sources */,
 				EE9F40652810165800C749AD /* SceneDelegate.swift in Sources */,
+				EE9F40872812896500C749AD /* DetailsViewController.swift in Sources */,
+				EE8A5B2628140B6F0011A1D8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +309,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GMLK4RZG4G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhoneBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -302,6 +328,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = radik.PhoneBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -313,8 +340,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GMLK4RZG4G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhoneBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -330,6 +359,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = radik.PhoneBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
