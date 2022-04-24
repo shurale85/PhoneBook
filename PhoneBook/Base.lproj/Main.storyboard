@@ -138,7 +138,7 @@
                                             <constraint firstAttribute="height" constant="1" id="rOQ-H3-8Tk"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="DetailsViewController" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghk-QX-PSH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="DetailsViewController" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghk-QX-PSH">
                                         <rect key="frame" x="181" y="219.5" width="32" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -159,6 +159,13 @@
                             <constraint firstItem="wFq-RK-5Dw" firstAttribute="top" secondItem="N1r-bJ-GVU" secondAttribute="top" constant="30" id="u7c-69-c6G"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="biography" destination="ghk-QX-PSH" id="r5Q-o0-wuC"/>
+                        <outlet property="educationYears" destination="b4W-1f-ZmW" id="79b-K6-SAt"/>
+                        <outlet property="name" destination="7nM-J0-7Ba" id="nbo-ch-gO2"/>
+                        <outlet property="phone" destination="drH-o5-wD7" id="uVn-wn-TXn"/>
+                        <outlet property="temperament" destination="Z1A-iw-3vA" id="EIL-ur-WRv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9w-xD-IDE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

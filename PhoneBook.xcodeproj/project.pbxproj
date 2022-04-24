@@ -68,6 +68,7 @@
 		EE9F40612810165800C749AD /* PhoneBook */ = {
 			isa = PBXGroup;
 			children = (
+				EEE5EA5F2815883E0091F119 /* Network */,
 				EE9F40622810165800C749AD /* AppDelegate.swift */,
 				EE9F40642810165800C749AD /* SceneDelegate.swift */,
 				EE9F40662810165800C749AD /* ViewController.swift */,
@@ -79,10 +80,17 @@
 				EE9F40832811896F00C749AD /* ContactCell.xib */,
 				EE9F40862812896400C749AD /* DetailsViewController.swift */,
 				EE8A5B21281407700011A1D8 /* PersonModel.swift */,
-				EE8A5B2328140A2D0011A1D8 /* NetworkManager.swift */,
 				EE8A5B2528140B6F0011A1D8 /* Constants.swift */,
 			);
 			path = PhoneBook;
+			sourceTree = "<group>";
+		};
+		EEE5EA5F2815883E0091F119 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EE8A5B2328140A2D0011A1D8 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

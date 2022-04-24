@@ -14,6 +14,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var contactsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    private let networkManager: INetworkManager
+    
+    required init?(coder: NSCoder) {
+        networkManager = NetworkStab()
+        super.init(coder: coder)
+//        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     let data = ["Shahban", "Ramadan", "Shawal", "Rajjab", "DEcember", "April"]
     var filteredData: [String]!
@@ -28,7 +36,10 @@ class ViewController: UIViewController {
             switch result {
             case .success(let persons):
                 self.persons.append(contentsOf: persons)
-            
+                DispatchQueue.main.async {
+                    self.contactsTableView.reloadData()
+                }
+                
             case .failure(let err):
                 print(err)
             }
@@ -46,20 +57,27 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filteredData.count
+        persons.count
     }
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.cellId, for: indexPath) as! ContactCell
-        cell.setupCell()
+        cell.setupCell(person: persons[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        self.show(detailVC, sender: nil)
+        guard let detailVC = self.storyboard?.instantiateViewController(identifier: "DetailsViewController",  creator: {[unowned self] coder in DetailsViewController(person: self.persons[indexPath.row], coder: coder)})
+        else {
+            fatalError("Failed to create DetailsViewController")
+        }
+     //   let detailVC = DetailsViewController(person: persons[indexPath.row])
+       // detailVC(person: persons[indexPath.row])
+       // navigationController?.show(detailsVC, sender: nil)
+        //detailVC.set(person: persons[indexPath.row])
+        show(detailVC, sender: nil)
     }
     
 

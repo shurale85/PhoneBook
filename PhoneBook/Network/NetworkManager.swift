@@ -14,9 +14,27 @@ enum CustomError: Error {
     case errMsg(msg: String)
 }
 
-final class NetworkManager{
-    
+protocol INetworkManager {
+    /// Fetching person data from url specified
+    /// - Parameters:
+    ///   - url: url to fetch data
+    ///   - completion: action to perform since data is fethced
+    func fetchData(url: String, completion: @escaping(Result<[Person], CustomError>) -> Void)
+}
+
+extension INetworkManager {
     func fetchData(url: String, completion: @escaping(Result<[Person], CustomError>) -> Void){
+        completion(.success(Person.getStubData()))
+    }
+}
+
+
+/// Stab class for testing
+class NetworkStab: INetworkManager {
+}
+
+final class NetworkManager: INetworkManager{
+    func fetchData(url: String, completion: @escaping (Result<[Person], CustomError>) -> Void){
         let request = buildRequest(url: url)
                 guard let request = request else {
                     completion(.failure(.invalidUrl))
@@ -47,7 +65,6 @@ final class NetworkManager{
     ///   - method: HTTP method
     ///   - contentType: type of HEADER Content-Type
     /// - Returns: URLRequest
-    
     fileprivate func buildRequest(url: String, method: String = "GET", contentType: String = "application/json") -> URLRequest? {
         
         guard let url = URL(string: url) else {

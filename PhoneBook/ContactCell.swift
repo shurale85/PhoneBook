@@ -29,10 +29,10 @@ class ContactCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell() {
-        self.nameLabel?.text = "name"
-        self.phoneLabel?.text = "phone"
-        self.temperamentLabel?.text = "test temp"
+    func setupCell(person: Person) {
+        self.nameLabel?.text = person.name
+        self.phoneLabel?.text = person.phone
+        self.temperamentLabel?.text = person.temperament.rawValue
     }
     
 }
