@@ -14,10 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var contactsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    private let networkManager: INetworkManager
+//    private let networkManager: INetworkManager
+    
+    private let dataProvider: IDataProvider
     
     required init?(coder: NSCoder) {
-        networkManager = NetworkStab()
+ //       networkManager = NetworkStab()
+        dataProvider = DataProvider()
         super.init(coder: coder)
 //        fatalError("init(coder:) has not been implemented")
     }
@@ -30,19 +33,28 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let n = NetworkManager()
-        let url = Constants.baseURL + Constants.json1
-        n.fetchData(url: url){ result in
-            switch result {
-            case .success(let persons):
-                self.persons.append(contentsOf: persons)
-                DispatchQueue.main.async {
-                    self.contactsTableView.reloadData()
-                }
-                
-            case .failure(let err):
-                print(err)
+//        let n = NetworkManager()
+//        let url = Constants.baseURL + Constants.json1
+//        n.fetchData(url: url){ result in
+//            switch result {
+//            case .success(let persons):
+//                self.persons.append(contentsOf: persons)
+//                DispatchQueue.main.async {
+//                    self.contactsTableView.reloadData()
+//                }
+//
+//            case .failure(let err):
+//                print(err)
+//            }
+//        }
+        
+        dataProvider.getData{ [weak self] result in
+            
+            guard let self = self else {
+                return
             }
+            self.persons.append(contentsOf: result)
+            self.contactsTableView.reloadData()
         }
         
         contactsTableView.dataSource = self

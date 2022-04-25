@@ -19,6 +19,8 @@
 		EE9F40842811896F00C749AD /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F40822811896F00C749AD /* ContactCell.swift */; };
 		EE9F40852811896F00C749AD /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9F40832811896F00C749AD /* ContactCell.xib */; };
 		EE9F40872812896500C749AD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F40862812896400C749AD /* DetailsViewController.swift */; };
+		EEE5EA69281688B30091F119 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE5EA68281688B30091F119 /* DataProvider.swift */; };
+		EEE5EA732816A6920091F119 /* DataStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE5EA722816A6910091F119 /* DataStateService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		EE9F40822811896F00C749AD /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		EE9F40832811896F00C749AD /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		EE9F40862812896400C749AD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		EEE5EA68281688B30091F119 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		EEE5EA722816A6910091F119 /* DataStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStateService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				EE9F40862812896400C749AD /* DetailsViewController.swift */,
 				EE8A5B21281407700011A1D8 /* PersonModel.swift */,
 				EE8A5B2528140B6F0011A1D8 /* Constants.swift */,
+				EEE5EA68281688B30091F119 /* DataProvider.swift */,
+				EEE5EA722816A6910091F119 /* DataStateService.swift */,
 			);
 			path = PhoneBook;
 			sourceTree = "<group>";
@@ -171,8 +177,10 @@
 				EE8A5B2428140A2D0011A1D8 /* NetworkManager.swift in Sources */,
 				EE9F40632810165800C749AD /* AppDelegate.swift in Sources */,
 				EE9F40652810165800C749AD /* SceneDelegate.swift in Sources */,
+				EEE5EA69281688B30091F119 /* DataProvider.swift in Sources */,
 				EE9F40872812896500C749AD /* DetailsViewController.swift in Sources */,
 				EE8A5B2628140B6F0011A1D8 /* Constants.swift in Sources */,
+				EEE5EA732816A6920091F119 /* DataStateService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

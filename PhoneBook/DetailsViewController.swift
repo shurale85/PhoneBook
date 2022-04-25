@@ -18,11 +18,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var biography: UILabel!
     
     private let person: Person
-    
-//    init(person: Person){
-//        self.person = person
-//        super.init(nibName: nil, bundle: nil)
-//    }
 
     init?(person: Person, coder: NSCoder) {
         self.person = person
