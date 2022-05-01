@@ -14,15 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var contactsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-//    private let networkManager: INetworkManager
+    //    private let networkManager: INetworkManager
     
     private let dataProvider: IDataProvider
     
     required init?(coder: NSCoder) {
- //       networkManager = NetworkStab()
+        //       networkManager = NetworkStab()
         dataProvider = DataProvider()
         super.init(coder: coder)
-//        fatalError("init(coder:) has not been implemented")
+        //        fatalError("init(coder:) has not been implemented")
     }
     
     
@@ -30,23 +30,13 @@ class ViewController: UIViewController {
     var filteredData: [String]!
     
     var persons: [Person] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let n = NetworkManager()
-//        let url = Constants.baseURL + Constants.json1
-//        n.fetchData(url: url){ result in
-//            switch result {
-//            case .success(let persons):
-//                self.persons.append(contentsOf: persons)
-//                DispatchQueue.main.async {
-//                    self.contactsTableView.reloadData()
-//                }
-//
-//            case .failure(let err):
-//                print(err)
-//            }
-//        }
+        
+        let swipeGestureRecognizerDown = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        swipeGestureRecognizerDown.direction = .down
+        view.addGestureRecognizer(swipeGestureRecognizerDown)
         
         dataProvider.getData{ [weak self] result in
             
@@ -54,7 +44,10 @@ class ViewController: UIViewController {
                 return
             }
             self.persons.append(contentsOf: result)
-            self.contactsTableView.reloadData()
+            DispatchQueue.main.async {
+                self.contactsTableView.reloadData()
+            }
+            
         }
         
         contactsTableView.dataSource = self
@@ -62,6 +55,20 @@ class ViewController: UIViewController {
         searchBar.delegate = self
         filteredData = data
         contactsTableView.register(ContactCell.nib(), forCellReuseIdentifier: ContactCell.cellId)
+    }
+    
+    @objc private func didSwipe() {
+        dataProvider.updateData{
+            [weak self] result in
+            
+            guard let self = self else {
+                return
+            }
+            self.persons.append(contentsOf: result)
+            DispatchQueue.main.async {
+                self.contactsTableView.reloadData()
+            }
+        }
     }
     
     
@@ -85,14 +92,14 @@ extension ViewController: UITableViewDataSource {
         else {
             fatalError("Failed to create DetailsViewController")
         }
-     //   let detailVC = DetailsViewController(person: persons[indexPath.row])
-       // detailVC(person: persons[indexPath.row])
-       // navigationController?.show(detailsVC, sender: nil)
+        //   let detailVC = DetailsViewController(person: persons[indexPath.row])
+        // detailVC(person: persons[indexPath.row])
+        // navigationController?.show(detailsVC, sender: nil)
         //detailVC.set(person: persons[indexPath.row])
         show(detailVC, sender: nil)
     }
     
-
+    
 }
 
 // MARK: searchbar
@@ -103,12 +110,12 @@ extension ViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             filteredData = data
         } else {
-        
-        for i in data {
-            if i.lowercased().contains(searchText.lowercased()) {
-                filteredData.append(i)
+            
+            for i in data {
+                if i.lowercased().contains(searchText.lowercased()) {
+                    filteredData.append(i)
+                }
             }
-        }
         }
         self.contactsTableView.reloadData()
     }

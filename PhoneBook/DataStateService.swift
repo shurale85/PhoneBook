@@ -26,8 +26,8 @@ final class DataStateService: IDataStateService {
         guard let lastDonwloadTime = lastDonwloadTime else {
             return false
         }
-        
-        return Int(lastDonwloadTime.timeIntervalSinceNow) < 60
+        print(lastDonwloadTime.timeIntervalSinceNow)
+        return Int(lastDonwloadTime.timeIntervalSinceNow) > -60
     }
 }
 

@@ -5,9 +5,10 @@
 //  Created by Radik Nuriev on 23.04.2022.
 //
 import Foundation
+import GRDB
 
 /// Person model
-struct Person: Decodable {
+struct Person: Codable, MutablePersistableRecord, TableRecord {
     let id: String
     let name: String
     let height: Float
@@ -15,15 +16,41 @@ struct Person: Decodable {
     let biography: String
     let temperament: Temperament
     let educationPeriod: EducationPeriod
+    
 }
 
-enum Temperament: String, Decodable {
+extension Person: FetchableRecord {
+    init(row: Row) {
+        id = row["id"]
+        name = row["name"]
+        height = row["height"]
+        phone = row["phone"]
+        biography = row["biography"]
+        temperament = row["temperament"]
+        educationPeriod = EducationPeriod(start: row["educationStart"], end: row["educationEnd"])
+    }
+}
+
+enum Temperament: String, Codable, DatabaseValueConvertible {
     case melancholic, phlegmatic, sanguine, choleric
 }
 
-struct EducationPeriod: Decodable {
+struct EducationPeriod: Codable {
     let start: String
     let end: String
+}
+
+extension Person: PersistableRecord {
+    func encode(to container: inout PersistenceContainer) {
+        container["id"] = id
+        container["name"] = name
+        container["phone"] = phone
+        container["height"] = height
+        container["biography"] = biography
+        container["temperament"] = temperament
+        container["educationStart"] = educationPeriod.start
+        container["educationEnd"] = educationPeriod.end
+    }
 }
 
 extension Person {

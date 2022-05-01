@@ -21,6 +21,8 @@
 		EE9F40872812896500C749AD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F40862812896400C749AD /* DetailsViewController.swift */; };
 		EEE5EA69281688B30091F119 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE5EA68281688B30091F119 /* DataProvider.swift */; };
 		EEE5EA732816A6920091F119 /* DataStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE5EA722816A6910091F119 /* DataStateService.swift */; };
+		EEE5EA802816D75B0091F119 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EEE5EA7F2816D75B0091F119 /* GRDB */; };
+		EEE5EA822816D7B20091F119 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE5EA812816D7B20091F119 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,7 @@
 		EE9F40862812896400C749AD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		EEE5EA68281688B30091F119 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		EEE5EA722816A6910091F119 /* DataStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStateService.swift; sourceTree = "<group>"; };
+		EEE5EA812816D7B20091F119 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE5EA802816D75B0091F119 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,7 @@
 				EE8A5B2528140B6F0011A1D8 /* Constants.swift */,
 				EEE5EA68281688B30091F119 /* DataProvider.swift */,
 				EEE5EA722816A6910091F119 /* DataStateService.swift */,
+				EEE5EA812816D7B20091F119 /* DatabaseManager.swift */,
 			);
 			path = PhoneBook;
 			sourceTree = "<group>";
@@ -115,6 +120,9 @@
 			dependencies = (
 			);
 			name = PhoneBook;
+			packageProductDependencies = (
+				EEE5EA7F2816D75B0091F119 /* GRDB */,
+			);
 			productName = PhoneBook;
 			productReference = EE9F405F2810165800C749AD /* PhoneBook.app */;
 			productType = "com.apple.product-type.application";
@@ -143,6 +151,9 @@
 				Base,
 			);
 			mainGroup = EE9F40562810165800C749AD;
+			packageReferences = (
+				EEE5EA7E2816D75A0091F119 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+			);
 			productRefGroup = EE9F40602810165800C749AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -172,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8A5B22281407700011A1D8 /* PersonModel.swift in Sources */,
+				EEE5EA822816D7B20091F119 /* DatabaseManager.swift in Sources */,
 				EE9F40842811896F00C749AD /* ContactCell.swift in Sources */,
 				EE9F40672810165800C749AD /* ViewController.swift in Sources */,
 				EE8A5B2428140A2D0011A1D8 /* NetworkManager.swift in Sources */,
@@ -404,6 +416,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EEE5EA7E2816D75A0091F119 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EEE5EA7F2816D75B0091F119 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEE5EA7E2816D75A0091F119 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EE9F40572810165800C749AD /* Project object */;
 }

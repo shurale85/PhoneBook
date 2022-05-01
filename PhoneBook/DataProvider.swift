@@ -20,16 +20,27 @@ class DataProvider: IDataProvider {
     private let urls = Constants.getUrls()
     private let networkManager: INetworkManager
     private let dataStateService: IDataStateService
+    private let databaseManager: IDatabaseManager
    // private var personsData: [Person] = []
     
     init(networkManager: INetworkManager = NetworkManager()) {
         self.networkManager = networkManager
-        self.dataStateService = DataStateStub()
+        self.dataStateService = DataStateService()
+        databaseManager = DatabaseManager()
     }
     
     func getData(completion: @escaping ([Person]) -> Void) {
-        if  dataStateService.isActual() {
-            getPesonsDataFromDB()
+        do {
+            guard try databaseManager.ifTableExists() else {
+                getPersonsDataFromApi(completion: completion)
+                return
+            }
+        } catch {
+            debugPrint(error)
+        }
+        
+        if dataStateService.isActual() {
+            getPesonsDataFromDB(completion: completion)
         } else {
             getPersonsDataFromApi(completion: completion)
         }
@@ -40,6 +51,7 @@ class DataProvider: IDataProvider {
     }
     
     func getPersonsDataFromApi(completion: @escaping ([Person]) -> Void) {
+        print("getting from api")
         var personsData: [Person] = []
         let group = DispatchGroup()
         urls.forEach { url in
@@ -51,18 +63,29 @@ class DataProvider: IDataProvider {
                 case .failure(let err):
                     print(err)
                 }
-                
+                completion(personsData)
                 group.leave()
             }
         }
         
-        group.notify(queue: .main){
+        group.notify(queue: .global(qos: .userInitiated)){ [weak self] in
             print("person data count: \(personsData.count)")
-            completion(personsData)
-        }
+            self?.databaseManager.insertData(data: personsData.dropLast(personsData.count - 10))
+            self?.dataStateService.setDownloadDate()
+//            DispatchQueue.global(qos: .userInitiated).async{
+//                self.databaseManager.insertData(data: personsData.dropLast(personsData.count - 10))
+//            }
+        }    
     }
     
-    func getPesonsDataFromDB() -> [Person] {
-        return Person.getStubData()
+    func getPesonsDataFromDB(completion: ([Person]) -> Void)  {
+        print("getting fron db")
+        do{
+            let personsData = try databaseManager.fetchData()
+            completion(personsData.dropLast(personsData.count - 5))
+        }
+        catch{
+            debugPrint(error)
+        }
     } 
 }
