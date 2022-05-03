@@ -12,7 +12,7 @@ struct Person: Codable, Comparable {
     let id: String
     let name: String
     let height: Float
-    let phone: String
+    var phone: String
     let biography: String
     let temperament: Temperament
     let educationPeriod: EducationPeriod

@@ -245,7 +245,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "07184B56-3E1B-4315-9446-1354B40327AD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhoneBook/DatabaseManager.swift"
@@ -261,7 +261,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F7648119-D2AB-48F3-B007-B87DE42279AC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhoneBook/DatabaseManager.swift"
@@ -395,8 +395,8 @@
             filePath = "PhoneBook/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -437,7 +437,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C7C16BED-A9E1-438B-AF91-0D2D19F1D991"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhoneBook/PersonModel.swift"
@@ -453,7 +453,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "784EF14B-39F5-4723-926D-2F8D921FECD1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhoneBook/PersonModel.swift"
@@ -463,38 +463,38 @@
             endingLineNumber = "102"
             landmarkName = "getRuDateRepresentaion()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "784EF14B-39F5-4723-926D-2F8D921FECD1 - c2b518ddef934ff2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Foundation.DateComponents.getRuDateRepresentaion() -&gt; Swift.String"
-                  moduleName = "PhoneBook"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/radik.nuriev/Documents/XCode_projects/private/PhoneBook/PhoneBook/PersonModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "151">
-               </Location>
-               <Location
-                  uuid = "784EF14B-39F5-4723-926D-2F8D921FECD1 - c2b518ddef934ff2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Foundation.DateComponents.getRuDateRepresentaion() -&gt; Swift.String"
-                  moduleName = "PhoneBook"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/radik.nuriev/Documents/XCode_projects/private/PhoneBook/PhoneBook/PersonModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "212">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2637D722-3C96-497B-B170-36555B795140"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhoneBook/DataProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getPersonsDataFromApi(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "019C04C7-D052-46D4-BE28-07E6AE7C3ADF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhoneBook/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "showAlert(on:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
