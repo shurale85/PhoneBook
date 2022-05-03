@@ -38,7 +38,7 @@ class DetailsViewController: UIViewController {
         name.text = person.name
         educationYears.text = person.educationPeriod.description
         educationYears.textColor = Constants.mainGrayColor
-        temperament.text = person.temperament.rawValue
+        temperament.text = person.temperament.description
         temperament.textColor = Constants.mainGrayColor
         phone.setText(person.phone, prependedBySymbolNameed: "phone.fill")
         biography.text = person.biography

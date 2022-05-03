@@ -38,8 +38,24 @@ extension Person: FetchableRecord, MutablePersistableRecord {
     }
 }
 
-enum Temperament: String, Codable, DatabaseValueConvertible {
-    case melancholic, phlegmatic, sanguine, choleric
+enum Temperament: String, Codable, DatabaseValueConvertible, CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .melancholic:
+            return "Melancholic"
+        case .phlegmatic:
+            return "Phlegmatic"
+        case .sanguine:
+            return "Sanguine"
+        case .choleric:
+            return "Choleric"
+        }
+    }
+    
+    case melancholic
+    case phlegmatic
+    case sanguine
+    case choleric
 }
 
 struct EducationPeriod: Codable, CustomStringConvertible {

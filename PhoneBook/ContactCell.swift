@@ -27,8 +27,11 @@ class ContactCell: UITableViewCell {
     }
     
     func setupCell(person: Person) {
-        nameLabel?.text = person.name
-        phoneLabel?.text = person.phone
-        temperamentLabel.setText(person.temperament.rawValue, prependedBySymbolNameed: "chevron.right", isSymbolSuffix: true) 
+        nameLabel.text = person.name
+        phoneLabel.text = person.phone
+        phoneLabel.textColor = Constants.mainGrayColor
+        temperamentLabel.text = person.temperament.description
+//        temperamentLabel.setText(person.temperament.rawValue, prependedBySymbolNameed: "chevron.right", isSymbolSuffix: true)
+        temperamentLabel.textColor = Constants.mainGrayColor
     }
 }
