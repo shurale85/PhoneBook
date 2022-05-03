@@ -5,6 +5,8 @@
 //  Created by Radik Nuriev on 23.04.2022.
 //
 
+import UIKit
+
 final class Constants {
     static let json1 = "generated-01.json"
     static let json2 = "generated-02.json"
@@ -15,6 +17,8 @@ final class Constants {
     
     /// Key to store data actual state
     static let dataKeyName = "persondata"
+    
+    static let mainGrayColor = UIColor.systemGray2
 }
 
 extension Constants {

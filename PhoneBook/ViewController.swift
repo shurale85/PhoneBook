@@ -19,20 +19,23 @@ class ViewController: UIViewController {
     private let dataProvider: IDataProvider
     
     required init?(coder: NSCoder) {
-        //       networkManager = NetworkStab()
         dataProvider = DataProvider()
         super.init(coder: coder)
-        //        fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    let data = ["Shahban", "Ramadan", "Shawal", "Rajjab", "DEcember", "April"]
-    var filteredData: [String]!
-    
+
+    var personsOrigin: [Person] = []
+    {
+        didSet {
+            persons = personsOrigin.sorted()
+        }
+    }
     var persons: [Person] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
         
         let swipeGestureRecognizerDown = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
         swipeGestureRecognizerDown.direction = .down
@@ -43,7 +46,7 @@ class ViewController: UIViewController {
             guard let self = self else {
                 return
             }
-            self.persons.append(contentsOf: result)
+            self.personsOrigin.append(contentsOf: result)
             DispatchQueue.main.async {
                 self.contactsTableView.reloadData()
             }
@@ -53,7 +56,6 @@ class ViewController: UIViewController {
         contactsTableView.dataSource = self
         contactsTableView.delegate = self
         searchBar.delegate = self
-        filteredData = data
         contactsTableView.register(ContactCell.nib(), forCellReuseIdentifier: ContactCell.cellId)
     }
     
@@ -64,7 +66,7 @@ class ViewController: UIViewController {
             guard let self = self else {
                 return
             }
-            self.persons.append(contentsOf: result)
+            self.personsOrigin.append(contentsOf: result)
             DispatchQueue.main.async {
                 self.contactsTableView.reloadData()
             }
@@ -105,18 +107,63 @@ extension ViewController: UITableViewDataSource {
 // MARK: searchbar
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = []
+        persons = []
         
         if searchText.isEmpty {
-            filteredData = data
+            persons = personsOrigin
         } else {
             
-            for i in data {
-                if i.lowercased().contains(searchText.lowercased()) {
-                    filteredData.append(i)
+            for person in personsOrigin {
+                if person.name.lowercased().contains(searchText.lowercased()) {
+                    persons.append(person)
+                } else if person.phone.digits.contains(searchText) {
+                    persons.append(person)
                 }
             }
         }
+        persons = persons.sorted()
         self.contactsTableView.reloadData()
     }
 }
+
+extension RangeReplaceableCollection where Self: StringProtocol {
+    var digits: Self { filter(\.isWholeNumber)}
+    
+    var phoneNumberSymbols: Self {filter(\.isDigitOrPlus)}
+}
+
+extension Character {
+    var isDigitOrPlus: Bool { "0"..."9" ~= self || self == "+"}
+}
+
+extension RangeReplaceableCollection where Self: StringProtocol {
+    mutating func removeAllNonPhoneSymbols() {
+        removeAll { !$0.isDigitOrPlus }
+    }
+}
+
+
+extension UILabel {
+    func setText(_ text: String, prependedBySymbolNameed symbolSystemName: String, font: UIFont? = nil, isSymbolSuffix: Bool = false) {
+        if #available(iOS 13.0, *) {
+            if let font = font { self.font = font }
+            let symbolConfiguration = UIImage.SymbolConfiguration(font: self.font)
+            let symbolImage = UIImage(systemName: symbolSystemName, withConfiguration: symbolConfiguration)?.withRenderingMode(.alwaysTemplate)
+            let symbolTextAttachment = NSTextAttachment()
+            symbolTextAttachment.image = symbolImage
+            let attributedText = NSMutableAttributedString()
+            if isSymbolSuffix {
+                attributedText.append(NSAttributedString(string: text + " "))
+                attributedText.append(NSAttributedString(attachment: symbolTextAttachment))
+            } else {
+                attributedText.append(NSAttributedString(attachment: symbolTextAttachment))
+                attributedText.append(NSAttributedString(string: " " + text))
+            }
+            
+            self.attributedText = attributedText
+        } else {
+            self.text = text
+        }
+    }
+}
+

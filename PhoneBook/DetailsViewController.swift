@@ -22,6 +22,7 @@ class DetailsViewController: UIViewController {
     init?(person: Person, coder: NSCoder) {
         self.person = person
         super.init(coder: coder)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -35,9 +36,26 @@ class DetailsViewController: UIViewController {
     
     private func setupFields(person: Person) {
         name.text = person.name
-        educationYears.text = person.educationPeriod.start + " - " + person.educationPeriod.end
+        educationYears.text = person.educationPeriod.description
+        educationYears.textColor = Constants.mainGrayColor
         temperament.text = person.temperament.rawValue
-        phone.text = person.phone
+        temperament.textColor = Constants.mainGrayColor
+        phone.setText(person.phone, prependedBySymbolNameed: "phone.fill")
         biography.text = person.biography
+        biography.textColor = Constants.mainGrayColor
+        let phoneTap = UITapGestureRecognizer(target: self, action: #selector(phoneTapped))
+        phone.isUserInteractionEnabled = true
+        phone.addGestureRecognizer(phoneTap)
+    }
+    
+    @objc func phoneTapped(sender: UIGestureRecognizer){
+        guard let phoneNumber = phone.text?.phoneNumberSymbols, let url = URL(string: "tel://\(phoneNumber)") else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+            print("calling")
+        }
     }
 }

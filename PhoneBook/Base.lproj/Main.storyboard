@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -98,56 +99,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="wFq-RK-5Dw">
-                                <rect key="frame" x="10" y="74" width="394" height="240"/>
+                                <rect key="frame" x="10" y="74" width="394" height="253"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nM-J0-7Ba">
-                                        <rect key="frame" x="171" y="0.0" width="52" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="156" y="0.0" width="82.5" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StudyYears" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4W-1f-ZmW">
-                                        <rect key="frame" x="154" y="46" width="86" height="20.5"/>
+                                        <rect key="frame" x="154" y="59" width="86" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperament" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1A-iw-3vA">
-                                        <rect key="frame" x="144.5" y="88.5" width="105.5" height="20.5"/>
+                                        <rect key="frame" x="144.5" y="101.5" width="105.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8Q-Cg-iwJ" userLabel="UpperSeperator">
-                                        <rect key="frame" x="0.0" y="131" width="394" height="1"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkF-rE-GQy" userLabel="UpperSeparator">
+                                        <rect key="frame" x="0.0" y="144" width="394" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="yYO-t7-p5l"/>
+                                            <constraint firstAttribute="height" constant="1" id="mJQ-4u-bph"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drH-o5-wD7">
-                                        <rect key="frame" x="173" y="154" width="48.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drH-o5-wD7">
+                                        <rect key="frame" x="173" y="167" width="48.5" height="20.5"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Phone">
+                                                <attributes>
+                                                    <color key="NSColor" systemColor="linkColor"/>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3m-68-jeu" userLabel="DownSeparator">
-                                        <rect key="frame" x="0.0" y="196.5" width="394" height="1"/>
+                                        <rect key="frame" x="0.0" y="209.5" width="394" height="1"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="rOQ-H3-8Tk"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="DetailsViewController" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghk-QX-PSH">
-                                        <rect key="frame" x="181" y="219.5" width="32" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="DetailsViewController" text="Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghk-QX-PSH">
+                                        <rect key="frame" x="20" y="232.5" width="354" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jkF-rE-GQy" secondAttribute="trailing" id="67r-la-eOM"/>
+                                    <constraint firstItem="ghk-QX-PSH" firstAttribute="leading" secondItem="wFq-RK-5Dw" secondAttribute="leading" constant="20" id="9ym-M2-W2U"/>
                                     <constraint firstAttribute="trailing" secondItem="Y3m-68-jeu" secondAttribute="trailing" id="DyE-y3-zSB"/>
                                     <constraint firstItem="Y3m-68-jeu" firstAttribute="leading" secondItem="wFq-RK-5Dw" secondAttribute="leading" id="Lys-vX-CvC"/>
+                                    <constraint firstItem="Y3m-68-jeu" firstAttribute="top" secondItem="drH-o5-wD7" secondAttribute="bottom" constant="22" id="hkP-J1-yUd"/>
+                                    <constraint firstItem="jkF-rE-GQy" firstAttribute="leading" secondItem="wFq-RK-5Dw" secondAttribute="leading" id="jyp-AQ-xpo"/>
+                                    <constraint firstAttribute="trailing" secondItem="ghk-QX-PSH" secondAttribute="trailing" constant="20" id="pJC-es-RQN"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -191,6 +204,12 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

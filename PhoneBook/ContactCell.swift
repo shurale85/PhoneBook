@@ -16,7 +16,6 @@ class ContactCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     static func nib() -> UINib {
@@ -25,14 +24,11 @@ class ContactCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setupCell(person: Person) {
-        self.nameLabel?.text = person.name
-        self.phoneLabel?.text = person.phone
-        self.temperamentLabel?.text = person.temperament.rawValue
+        nameLabel?.text = person.name
+        phoneLabel?.text = person.phone
+        temperamentLabel.setText(person.temperament.rawValue, prependedBySymbolNameed: "chevron.right", isSymbolSuffix: true) 
     }
-    
 }
