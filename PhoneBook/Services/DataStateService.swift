@@ -1,24 +1,4 @@
-//
-//  IDataState.swift
-//  PhoneBook
-//
-//  Created by Radik Nuriev on 25.04.2022.
-//
-
 import Foundation
-
-/// Check if data is actual or need to be updated
-protocol IDataStateService {
-    func isActual() -> Bool
-    
-    func setDownloadDate(date: Date)
-}
-
-extension IDataStateService {
-    func setDownloadDate(date: Date = Date()){
-        UserDefaults.standard.set(Date(), forKey: Constants.dataKeyName)
-    }
-}
 
 final class DataStateService: IDataStateService {
     func isActual() -> Bool {

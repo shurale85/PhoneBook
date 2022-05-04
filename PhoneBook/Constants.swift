@@ -1,10 +1,3 @@
-//
-//  Constants.swift
-//  PhoneBook
-//
-//  Created by Radik Nuriev on 23.04.2022.
-//
-
 import UIKit
 
 final class Constants {
@@ -19,6 +12,9 @@ final class Constants {
     static let dataKeyName = "persondata"
     
     static let mainGrayColor = UIColor.systemGray2
+    
+    static let tableName = "person"
+    static let dbName = "personDb"
 }
 
 extension Constants {

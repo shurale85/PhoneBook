@@ -23,6 +23,18 @@
 		EEE5EA732816A6920091F119 /* DataStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE5EA722816A6910091F119 /* DataStateService.swift */; };
 		EEE5EA802816D75B0091F119 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EEE5EA7F2816D75B0091F119 /* GRDB */; };
 		EEE5EA822816D7B20091F119 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE5EA812816D7B20091F119 /* DatabaseManager.swift */; };
+		EEED86B52822ED9B00AE39CF /* SafeBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86B42822ED9B00AE39CF /* SafeBool.swift */; };
+		EEED86B72822EDEC00AE39CF /* SafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86B62822EDEC00AE39CF /* SafeArray.swift */; };
+		EEED86B92822EE7300AE39CF /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86B82822EE7300AE39CF /* CustomAlert.swift */; };
+		EEED86BC2822F0BF00AE39CF /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86BB2822F0BF00AE39CF /* StringProtocol+.swift */; };
+		EEED86BE2822F12E00AE39CF /* Character+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86BD2822F12E00AE39CF /* Character+.swift */; };
+		EEED86C02822F18500AE39CF /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86BF2822F18500AE39CF /* UILabel+.swift */; };
+		EEED86C22822F29E00AE39CF /* DateComponents+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86C12822F29E00AE39CF /* DateComponents+.swift */; };
+		EEED86C42822F40D00AE39CF /* INetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86C32822F40D00AE39CF /* INetworkManager.swift */; };
+		EEED86C62822F44400AE39CF /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86C52822F44400AE39CF /* CustomError.swift */; };
+		EEED86C92822F5C000AE39CF /* IDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86C82822F5C000AE39CF /* IDataProvider.swift */; };
+		EEED86CB2822F61900AE39CF /* IDataStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86CA2822F61900AE39CF /* IDataStateService.swift */; };
+		EEED86CD2822F69A00AE39CF /* IDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86CC2822F69A00AE39CF /* IDatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +55,18 @@
 		EEE5EA68281688B30091F119 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		EEE5EA722816A6910091F119 /* DataStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStateService.swift; sourceTree = "<group>"; };
 		EEE5EA812816D7B20091F119 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		EEED86B42822ED9B00AE39CF /* SafeBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeBool.swift; sourceTree = "<group>"; };
+		EEED86B62822EDEC00AE39CF /* SafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeArray.swift; sourceTree = "<group>"; };
+		EEED86B82822EE7300AE39CF /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		EEED86BB2822F0BF00AE39CF /* StringProtocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
+		EEED86BD2822F12E00AE39CF /* Character+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+.swift"; sourceTree = "<group>"; };
+		EEED86BF2822F18500AE39CF /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		EEED86C12822F29E00AE39CF /* DateComponents+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+.swift"; sourceTree = "<group>"; };
+		EEED86C32822F40D00AE39CF /* INetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INetworkManager.swift; sourceTree = "<group>"; };
+		EEED86C52822F44400AE39CF /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		EEED86C82822F5C000AE39CF /* IDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDataProvider.swift; sourceTree = "<group>"; };
+		EEED86CA2822F61900AE39CF /* IDataStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDataStateService.swift; sourceTree = "<group>"; };
+		EEED86CC2822F69A00AE39CF /* IDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +100,9 @@
 		EE9F40612810165800C749AD /* PhoneBook */ = {
 			isa = PBXGroup;
 			children = (
+				EEED86C72822F53B00AE39CF /* Services */,
+				EEED86BA2822F07900AE39CF /* Extensions */,
+				EEED86B32822ED7700AE39CF /* Utilitites */,
 				EEE5EA5F2815883E0091F119 /* Network */,
 				EE9F40622810165800C749AD /* AppDelegate.swift */,
 				EE9F40642810165800C749AD /* SceneDelegate.swift */,
@@ -89,9 +116,6 @@
 				EE9F40862812896400C749AD /* DetailsViewController.swift */,
 				EE8A5B21281407700011A1D8 /* PersonModel.swift */,
 				EE8A5B2528140B6F0011A1D8 /* Constants.swift */,
-				EEE5EA68281688B30091F119 /* DataProvider.swift */,
-				EEE5EA722816A6910091F119 /* DataStateService.swift */,
-				EEE5EA812816D7B20091F119 /* DatabaseManager.swift */,
 			);
 			path = PhoneBook;
 			sourceTree = "<group>";
@@ -100,8 +124,44 @@
 			isa = PBXGroup;
 			children = (
 				EE8A5B2328140A2D0011A1D8 /* NetworkManager.swift */,
+				EEED86C32822F40D00AE39CF /* INetworkManager.swift */,
+				EEED86C52822F44400AE39CF /* CustomError.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EEED86B32822ED7700AE39CF /* Utilitites */ = {
+			isa = PBXGroup;
+			children = (
+				EEED86B42822ED9B00AE39CF /* SafeBool.swift */,
+				EEED86B62822EDEC00AE39CF /* SafeArray.swift */,
+				EEED86B82822EE7300AE39CF /* CustomAlert.swift */,
+			);
+			path = Utilitites;
+			sourceTree = "<group>";
+		};
+		EEED86BA2822F07900AE39CF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EEED86BB2822F0BF00AE39CF /* StringProtocol+.swift */,
+				EEED86BD2822F12E00AE39CF /* Character+.swift */,
+				EEED86BF2822F18500AE39CF /* UILabel+.swift */,
+				EEED86C12822F29E00AE39CF /* DateComponents+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EEED86C72822F53B00AE39CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EEE5EA812816D7B20091F119 /* DatabaseManager.swift */,
+				EEE5EA68281688B30091F119 /* DataProvider.swift */,
+				EEE5EA722816A6910091F119 /* DataStateService.swift */,
+				EEED86C82822F5C000AE39CF /* IDataProvider.swift */,
+				EEED86CA2822F61900AE39CF /* IDataStateService.swift */,
+				EEED86CC2822F69A00AE39CF /* IDatabaseManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,10 +242,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEED86B52822ED9B00AE39CF /* SafeBool.swift in Sources */,
 				EE8A5B22281407700011A1D8 /* PersonModel.swift in Sources */,
+				EEED86C92822F5C000AE39CF /* IDataProvider.swift in Sources */,
 				EEE5EA822816D7B20091F119 /* DatabaseManager.swift in Sources */,
+				EEED86C22822F29E00AE39CF /* DateComponents+.swift in Sources */,
+				EEED86BE2822F12E00AE39CF /* Character+.swift in Sources */,
+				EEED86C62822F44400AE39CF /* CustomError.swift in Sources */,
+				EEED86BC2822F0BF00AE39CF /* StringProtocol+.swift in Sources */,
 				EE9F40842811896F00C749AD /* ContactCell.swift in Sources */,
+				EEED86C42822F40D00AE39CF /* INetworkManager.swift in Sources */,
+				EEED86C02822F18500AE39CF /* UILabel+.swift in Sources */,
+				EEED86CD2822F69A00AE39CF /* IDatabaseManager.swift in Sources */,
+				EEED86CB2822F61900AE39CF /* IDataStateService.swift in Sources */,
 				EE9F40672810165800C749AD /* ViewController.swift in Sources */,
+				EEED86B72822EDEC00AE39CF /* SafeArray.swift in Sources */,
 				EE8A5B2428140A2D0011A1D8 /* NetworkManager.swift in Sources */,
 				EE9F40632810165800C749AD /* AppDelegate.swift in Sources */,
 				EE9F40652810165800C749AD /* SceneDelegate.swift in Sources */,
@@ -193,6 +264,7 @@
 				EE9F40872812896500C749AD /* DetailsViewController.swift in Sources */,
 				EE8A5B2628140B6F0011A1D8 /* Constants.swift in Sources */,
 				EEE5EA732816A6920091F119 /* DataStateService.swift in Sources */,
+				EEED86B92822EE7300AE39CF /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,10 +1,3 @@
-//
-//  DetailsViewController.swift
-//  PhoneBook
-//
-//  Created by Radik Nuriev on 22.04.2022.
-//
-
 import UIKit
 
 class DetailsViewController: UIViewController {

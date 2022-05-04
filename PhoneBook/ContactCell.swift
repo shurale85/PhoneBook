@@ -1,10 +1,3 @@
-//
-//  ContactCell.swift
-//  PhoneBook
-//
-//  Created by Radik Nuriev on 21.04.2022.
-//
-
 import UIKit
 
 class ContactCell: UITableViewCell {
@@ -31,7 +24,6 @@ class ContactCell: UITableViewCell {
         phoneLabel.text = person.phone
         phoneLabel.textColor = Constants.mainGrayColor
         temperamentLabel.text = person.temperament.description
-//        temperamentLabel.setText(person.temperament.rawValue, prependedBySymbolNameed: "chevron.right", isSymbolSuffix: true)
         temperamentLabel.textColor = Constants.mainGrayColor
     }
 }

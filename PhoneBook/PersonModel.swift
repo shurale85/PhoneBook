@@ -1,9 +1,3 @@
-//
-//  PersonModel.swift
-//  PhoneBook
-//
-//  Created by Radik Nuriev on 23.04.2022.
-//
 import Foundation
 import GRDB
 
@@ -26,7 +20,7 @@ struct Person: Codable, Comparable {
     }
 }
 
-extension Person: FetchableRecord, MutablePersistableRecord {
+extension Person: FetchableRecord, MutablePersistableRecord, PersistableRecord {
     init(row: Row) {
         id = row["id"]
         name = row["name"]
@@ -35,6 +29,17 @@ extension Person: FetchableRecord, MutablePersistableRecord {
         biography = row["biography"]
         temperament = row["temperament"]
         educationPeriod = EducationPeriod(startDate: row["educationStart"], endDate: row["educationEnd"])
+    }
+    
+    func encode(to container: inout PersistenceContainer) {
+        container["id"] = id
+        container["name"] = name
+        container["phone"] = phone
+        container["height"] = height
+        container["biography"] = biography
+        container["temperament"] = temperament
+        container["educationStart"] = educationPeriod.start
+        container["educationEnd"] = educationPeriod.end
     }
 }
 
@@ -94,28 +99,6 @@ struct EducationPeriod: Codable, CustomStringConvertible {
     
     enum CodingKeys: String, CodingKey {
         case start, end
-    }
-}
-
-extension DateComponents {
-    func getRuDateRepresentaion() -> String {
-        guard let day = self.day, let month = self.month, let year = self.year else {
-            return ""
-        }
-        return "\(day).\(month).\(year)"
-    }
-}
-
-extension Person: PersistableRecord {
-    func encode(to container: inout PersistenceContainer) {
-        container["id"] = id
-        container["name"] = name
-        container["phone"] = phone
-        container["height"] = height
-        container["biography"] = biography
-        container["temperament"] = temperament
-        container["educationStart"] = educationPeriod.start
-        container["educationEnd"] = educationPeriod.end
     }
 }
 

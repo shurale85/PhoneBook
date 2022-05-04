@@ -1,36 +1,8 @@
-//
-//  NetworkManager.swift
-//  PhoneBook
-//
-//  Created by Radik Nuriev on 23.04.2022.
-//
-
 import Foundation
 import UIKit
 
-enum CustomError: Error {
-    case invalidUrl
-    case invalidData
-    case errMsg(msg: String)
-}
-
-protocol INetworkManager {
-    /// Fetching person data from url specified
-    /// - Parameters:
-    ///   - url: url to fetch data
-    ///   - completion: action to perform since data is fethced
-    func fetchData(url: String, completion: @escaping(Result<[Person], CustomError>) -> Void)
-}
-
-extension INetworkManager {
-    func fetchData(url: String, completion: @escaping(Result<[Person], CustomError>) -> Void){
-        completion(.success(Person.getStubData()))
-    }
-}
-
-
 /// Stab class for testing
-class NetworkStab: INetworkManager {
+final class NetworkStab: INetworkManager {
 }
 
 final class NetworkManager: INetworkManager{

@@ -1,32 +1,14 @@
-//
-//  DatabaseManager.swift
-//  PhoneBook
-//
-//  Created by Radik Nuriev on 25.04.2022.
-//
-
 import GRDB
 import UIKit
 
-
-protocol IDatabaseManager {
-    func insertData(data: [Person])
-    
-    static func setup(for application: UIApplication) throws
-    
-    func ifTableExists() throws -> Bool
-    
-    func fetchData() throws -> [Person]
-}
-
 var dbQueue: DatabaseQueue!
-let tableName = "person"
+let tableName = Constants.tableName
 
 class DatabaseManager: IDatabaseManager {
     static func setup(for application: UIApplication) throws {
             let databaseURL = try FileManager.default
             .url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                .appendingPathComponent("db3.sqlite")
+            .appendingPathComponent(Constants.dbName)
 
             dbQueue = try DatabaseQueue(path: databaseURL.path)
             try migrator.migrate(dbQueue)

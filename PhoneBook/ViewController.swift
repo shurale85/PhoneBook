@@ -2,12 +2,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let cellId = "cell"
-    
     @IBOutlet weak var contactsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     private let dataProvider: IDataProvider
     private var alertController: CustomAlert?
+    private let cellId = "cell"
     
     required init?(coder: NSCoder) {
         dataProvider = DataProvider()
@@ -41,8 +40,7 @@ class ViewController: UIViewController {
             case .success(let persons):
                 self.personsOrigin.append(contentsOf: persons)
                 DispatchQueue.main.async {
-                    //self.contactsTableView.reloadData()
-                    self.showAlert()
+                    self.contactsTableView.reloadData()
                 }
             case .failure(_):
                 DispatchQueue.main.async {
@@ -73,7 +71,6 @@ class ViewController: UIViewController {
             case .failure(_):
                 self.showAlert()
             }
-            
         }
     }
     
@@ -85,79 +82,6 @@ class ViewController: UIViewController {
         alertController!.showAlert(on: self)
     }
     
-}
-
-class SafeBool {
-    private var isTrue: Bool = false
-    private let queue = DispatchQueue(label: "safe bool", attributes: .concurrent)
-    
-    public func write(value: Bool) {
-        queue.async(flags: .barrier) {
-            self.isTrue = value
-        }
-    }
-    
-    public func read() -> Bool {
-        var result: Bool = false
-        queue.sync {
-            result = isTrue
-        }
-        return result
-    }
-}
-
-class CustomAlert {
-    private var isShowing: SafeBool = SafeBool()
-    
-    func showAlert(on viewController: UIViewController){
-       
-        guard let targetView = viewController.view, !isShowing.read() else {
-            return
-        }
-        isShowing.write(value: true)
-        print("alarm")
-        let alertView = UIView()
-        alertView.backgroundColor = .black
-        alertView.alpha = 0.5
-        alertView.layer.masksToBounds = true
-        alertView.layer.cornerRadius = 10
-        alertView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let msgView = UILabel(frame: CGRect(x: 0,
-                                            y: 0,
-                                            width: alertView.frame.size.width,
-                                            height: 30))
-        msgView.text = "нет подключения к сети"
-        msgView.textAlignment = .left
-        msgView.textColor = .white
-        msgView.numberOfLines = 1
-        msgView.translatesAutoresizingMaskIntoConstraints = false
-        msgView.font = msgView.font.withSize(20)
-        
-        // setting frame does mean nothing since project use Autolayout. Constrains has to be used
-        //        alertView.frame = CGRect(x: 0,
-        //                                 y: 0,
-        //                                 width: targetView.frame.size.width - 20,
-        //                                 height: 70)
-        alertView.center = targetView.center
-        alertView.addSubview(msgView)
-        targetView.addSubview(alertView)
-        
-        NSLayoutConstraint.activate([
-            msgView.centerXAnchor.constraint(equalTo: alertView.centerXAnchor),
-            msgView.centerYAnchor.constraint(equalTo: alertView.centerYAnchor),
-            alertView.leadingAnchor.constraint(equalTo: targetView.leadingAnchor, constant: 20),
-            targetView.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: 20),
-            alertView.heightAnchor.constraint(equalToConstant: 60),
-            targetView.bottomAnchor.constraint(equalTo: alertView.bottomAnchor, constant: 20)
-        ])
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.isShowing.write(value: false)
-            msgView.removeFromSuperview()
-            alertView.removeFromSuperview()
-        }
-    }
 }
 
 extension ViewController: UITableViewDelegate {
@@ -178,10 +102,6 @@ extension ViewController: UITableViewDataSource {
         else {
             fatalError("Failed to create DetailsViewController")
         }
-        //   let detailVC = DetailsViewController(person: persons[indexPath.row])
-        // detailVC(person: persons[indexPath.row])
-        // navigationController?.show(detailsVC, sender: nil)
-        //detailVC.set(person: persons[indexPath.row])
         show(detailVC, sender: nil)
     }
     
@@ -209,45 +129,3 @@ extension ViewController: UISearchBarDelegate {
         self.contactsTableView.reloadData()
     }
 }
-
-extension RangeReplaceableCollection where Self: StringProtocol {
-    var digits: Self { filter(\.isWholeNumber)}
-    
-    var phoneNumberSymbols: Self {filter(\.isDigitOrPlus)}
-}
-
-extension Character {
-    var isDigitOrPlus: Bool { "0"..."9" ~= self || self == "+"}
-}
-
-extension RangeReplaceableCollection where Self: StringProtocol {
-    mutating func removeAllNonPhoneSymbols() {
-        removeAll { !$0.isDigitOrPlus }
-    }
-}
-
-
-extension UILabel {
-    func setText(_ text: String, prependedBySymbolNameed symbolSystemName: String, font: UIFont? = nil, isSymbolSuffix: Bool = false) {
-        if #available(iOS 13.0, *) {
-            if let font = font { self.font = font }
-            let symbolConfiguration = UIImage.SymbolConfiguration(font: self.font)
-            let symbolImage = UIImage(systemName: symbolSystemName, withConfiguration: symbolConfiguration)?.withRenderingMode(.alwaysTemplate)
-            let symbolTextAttachment = NSTextAttachment()
-            symbolTextAttachment.image = symbolImage
-            let attributedText = NSMutableAttributedString()
-            if isSymbolSuffix {
-                attributedText.append(NSAttributedString(string: text + " "))
-                attributedText.append(NSAttributedString(attachment: symbolTextAttachment))
-            } else {
-                attributedText.append(NSAttributedString(attachment: symbolTextAttachment))
-                attributedText.append(NSAttributedString(string: " " + text))
-            }
-            
-            self.attributedText = attributedText
-        } else {
-            self.text = text
-        }
-    }
-}
-
