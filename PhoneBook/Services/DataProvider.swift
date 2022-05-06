@@ -2,26 +2,36 @@ import Foundation
 
 class DataProvider: IDataProvider {
     private let urls = Constants.getUrls()
-    private let networkManager: INetworkManager
-    private let dataStateService: IDataStateService
-    private let databaseManager: IDatabaseManager
     
-    init(networkManager: INetworkManager = NetworkManager()) {
+    @Injected<INetworkManager>
+    var networkManager: INetworkManager?
+    @Injected<IDataStateService>
+    var dataStateService: IDataStateService?
+    @Injected<IDatabaseManager>
+    var databaseManager: IDatabaseManager?
+    
+    init(){
+        
+    }
+    
+    init(networkManager: INetworkManager, dataStateService: IDataStateService, dataBaseManager: IDatabaseManager) {
         self.networkManager = networkManager
-        self.dataStateService = DataStateService()
-        databaseManager = DatabaseManager()
+        self.dataStateService = dataStateService
+        self.databaseManager = dataBaseManager
     }
     
     func getData(completion: @escaping (Result<[Person], CustomError>) -> Void) {
         do {
-            guard try databaseManager.ifTableExists() else {
+            guard let databaseManager = databaseManager, try databaseManager.ifTableExists() else {
                 getPersonsDataFromApi(completion: completion)
                 return
             }
         } catch {
             debugPrint(error)
         }
-        
+        guard let dataStateService = dataStateService else {
+            return
+        }
         if dataStateService.isActual() {
             getPesonsDataFromDB(completion: completion)
         } else {
@@ -40,7 +50,7 @@ class DataProvider: IDataProvider {
 
         for url in urls {
             group.enter()
-            networkManager.fetchData(url: url){ result in
+            networkManager?.fetchData(url: url){ result in
                 switch result {
                 case .success(let data):
                     personsData.append(data)
@@ -55,14 +65,17 @@ class DataProvider: IDataProvider {
         
         group.notify(queue: .global(qos: .userInitiated)){ [weak self] in
             if isSuccess {
-                self?.databaseManager.insertData(data: personsData.valueArray.dropLast(personsData.valueArray.count - 10))
-                self?.dataStateService.setDownloadDate()
+                self?.databaseManager?.insertData(data: personsData.valueArray.dropLast(personsData.valueArray.count - 10))
+                self?.dataStateService?.setDownloadDate()
             }
         }    
     }
     
     func getPesonsDataFromDB(completion: (Result<[Person], CustomError>) -> Void)  {
         print("getting fron db")
+        guard let databaseManager = databaseManager else {
+            return
+        }
         do{
             let personsData = try databaseManager.fetchData()
             completion(.success(personsData.dropLast(personsData.count - 5)))

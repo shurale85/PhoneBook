@@ -15,7 +15,6 @@ class DetailsViewController: UIViewController {
     init?(person: Person, coder: NSCoder) {
         self.person = person
         super.init(coder: coder)
-        
     }
     
     required init?(coder: NSCoder) {

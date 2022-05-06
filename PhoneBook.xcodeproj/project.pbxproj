@@ -35,6 +35,8 @@
 		EEED86C92822F5C000AE39CF /* IDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86C82822F5C000AE39CF /* IDataProvider.swift */; };
 		EEED86CB2822F61900AE39CF /* IDataStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86CA2822F61900AE39CF /* IDataStateService.swift */; };
 		EEED86CD2822F69A00AE39CF /* IDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86CC2822F69A00AE39CF /* IDatabaseManager.swift */; };
+		EEED86D32824493300AE39CF /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86D22824493300AE39CF /* ServiceLocator.swift */; };
+		EEED86D528244BEC00AE39CF /* InjectionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86D428244BEC00AE39CF /* InjectionWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		EEED86C82822F5C000AE39CF /* IDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDataProvider.swift; sourceTree = "<group>"; };
 		EEED86CA2822F61900AE39CF /* IDataStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDataStateService.swift; sourceTree = "<group>"; };
 		EEED86CC2822F69A00AE39CF /* IDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabaseManager.swift; sourceTree = "<group>"; };
+		EEED86D22824493300AE39CF /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		EEED86D428244BEC00AE39CF /* InjectionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,6 @@
 				EEED86C72822F53B00AE39CF /* Services */,
 				EEED86BA2822F07900AE39CF /* Extensions */,
 				EEED86B32822ED7700AE39CF /* Utilitites */,
-				EEE5EA5F2815883E0091F119 /* Network */,
 				EE9F40622810165800C749AD /* AppDelegate.swift */,
 				EE9F40642810165800C749AD /* SceneDelegate.swift */,
 				EE9F40662810165800C749AD /* ViewController.swift */,
@@ -133,9 +136,11 @@
 		EEED86B32822ED7700AE39CF /* Utilitites */ = {
 			isa = PBXGroup;
 			children = (
+				EEED86D22824493300AE39CF /* ServiceLocator.swift */,
 				EEED86B42822ED9B00AE39CF /* SafeBool.swift */,
 				EEED86B62822EDEC00AE39CF /* SafeArray.swift */,
 				EEED86B82822EE7300AE39CF /* CustomAlert.swift */,
+				EEED86D428244BEC00AE39CF /* InjectionWrapper.swift */,
 			);
 			path = Utilitites;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 		EEED86C72822F53B00AE39CF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EEE5EA5F2815883E0091F119 /* Network */,
 				EEE5EA812816D7B20091F119 /* DatabaseManager.swift */,
 				EEE5EA68281688B30091F119 /* DataProvider.swift */,
 				EEE5EA722816A6910091F119 /* DataStateService.swift */,
@@ -248,12 +254,14 @@
 				EEE5EA822816D7B20091F119 /* DatabaseManager.swift in Sources */,
 				EEED86C22822F29E00AE39CF /* DateComponents+.swift in Sources */,
 				EEED86BE2822F12E00AE39CF /* Character+.swift in Sources */,
+				EEED86D528244BEC00AE39CF /* InjectionWrapper.swift in Sources */,
 				EEED86C62822F44400AE39CF /* CustomError.swift in Sources */,
 				EEED86BC2822F0BF00AE39CF /* StringProtocol+.swift in Sources */,
 				EE9F40842811896F00C749AD /* ContactCell.swift in Sources */,
 				EEED86C42822F40D00AE39CF /* INetworkManager.swift in Sources */,
 				EEED86C02822F18500AE39CF /* UILabel+.swift in Sources */,
 				EEED86CD2822F69A00AE39CF /* IDatabaseManager.swift in Sources */,
+				EEED86D32824493300AE39CF /* ServiceLocator.swift in Sources */,
 				EEED86CB2822F61900AE39CF /* IDataStateService.swift in Sources */,
 				EE9F40672810165800C749AD /* ViewController.swift in Sources */,
 				EEED86B72822EDEC00AE39CF /* SafeArray.swift in Sources */,

@@ -4,12 +4,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var contactsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    private let dataProvider: IDataProvider
+    @Injected<IDataProvider>
+    var dataProvider: IDataProvider?
     private var alertController: CustomAlert?
     private let cellId = "cell"
     
     required init?(coder: NSCoder) {
-        dataProvider = DataProvider()
         super.init(coder: coder)
     }
     
@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     var persons: [Person] = []
 
     override func viewDidLoad() {
+        guard let dataProvider = dataProvider else {
+            return
+        }
         super.viewDidLoad()
         
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -56,6 +59,10 @@ class ViewController: UIViewController {
     }
     
     @objc private func didSwipe() {
+        guard let dataProvider = dataProvider else {
+            return
+        }
+        
         dataProvider.updateData{
             [weak self] result in
             

@@ -8,6 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let dataService = DataStateService();
 //        dataService.setDownloadDate()
         try! DatabaseManager.setup(for: application)
+        let serviceLocator = ServiceLocator.shared
+        serviceLocator.register()
         
         return true
     }
