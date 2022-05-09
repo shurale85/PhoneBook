@@ -4,9 +4,7 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        let dataService = DataStateService();
-//        dataService.setDownloadDate()
+        setLaunchTime()
         try! DatabaseManager.setup(for: application)
         let serviceLocator = ServiceLocator.shared
         serviceLocator.register()
@@ -26,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    private func setLaunchTime() {
+        UserDefaults.standard.set(Date(), forKey: Constants.launchTime)
     }
 }
 

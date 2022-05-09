@@ -8,6 +8,6 @@ protocol IDataStateService {
 
 extension IDataStateService {
     func setDownloadDate(date: Date = Date()){
-        UserDefaults.standard.set(Date(), forKey: Constants.dataKeyName)
+        UserDefaults.standard.set(Date(), forKey: Constants.lastDownload)
     }
 }

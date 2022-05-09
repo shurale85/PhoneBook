@@ -32,7 +32,7 @@ class DetailsViewController: UIViewController {
         educationYears.textColor = Constants.mainGrayColor
         temperament.text = person.temperament.description
         temperament.textColor = Constants.mainGrayColor
-        phone.setText(person.phone, prependedBySymbolNameed: "phone.fill")
+        phone.setText(person.$phone, prependedBySymbolNameed: "phone.fill")
         biography.text = person.biography
         biography.textColor = Constants.mainGrayColor
         let phoneTap = UITapGestureRecognizer(target: self, action: #selector(phoneTapped))

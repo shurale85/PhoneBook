@@ -21,7 +21,7 @@ class ContactCell: UITableViewCell {
     
     func setupCell(person: Person) {
         nameLabel.text = person.name
-        phoneLabel.text = person.phone
+        phoneLabel.text = person.$phone
         phoneLabel.textColor = Constants.mainGrayColor
         temperamentLabel.text = person.temperament.description
         temperamentLabel.textColor = Constants.mainGrayColor

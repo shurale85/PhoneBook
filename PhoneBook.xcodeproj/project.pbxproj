@@ -37,6 +37,7 @@
 		EEED86CD2822F69A00AE39CF /* IDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86CC2822F69A00AE39CF /* IDatabaseManager.swift */; };
 		EEED86D32824493300AE39CF /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86D22824493300AE39CF /* ServiceLocator.swift */; };
 		EEED86D528244BEC00AE39CF /* InjectionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86D428244BEC00AE39CF /* InjectionWrapper.swift */; };
+		EEED86D92825938800AE39CF /* PhoneNumberSanitizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED86D82825938800AE39CF /* PhoneNumberSanitizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		EEED86CC2822F69A00AE39CF /* IDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabaseManager.swift; sourceTree = "<group>"; };
 		EEED86D22824493300AE39CF /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		EEED86D428244BEC00AE39CF /* InjectionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionWrapper.swift; sourceTree = "<group>"; };
+		EEED86D82825938800AE39CF /* PhoneNumberSanitizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberSanitizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				EEED86B62822EDEC00AE39CF /* SafeArray.swift */,
 				EEED86B82822EE7300AE39CF /* CustomAlert.swift */,
 				EEED86D428244BEC00AE39CF /* InjectionWrapper.swift */,
+				EEED86D82825938800AE39CF /* PhoneNumberSanitizer.swift */,
 			);
 			path = Utilitites;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				EEED86C42822F40D00AE39CF /* INetworkManager.swift in Sources */,
 				EEED86C02822F18500AE39CF /* UILabel+.swift in Sources */,
 				EEED86CD2822F69A00AE39CF /* IDatabaseManager.swift in Sources */,
+				EEED86D92825938800AE39CF /* PhoneNumberSanitizer.swift in Sources */,
 				EEED86D32824493300AE39CF /* ServiceLocator.swift in Sources */,
 				EEED86CB2822F61900AE39CF /* IDataStateService.swift in Sources */,
 				EE9F40672810165800C749AD /* ViewController.swift in Sources */,

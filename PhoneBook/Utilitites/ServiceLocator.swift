@@ -25,5 +25,6 @@ extension ServiceLocator {
         addServices(service: NetworkManager(), for: INetworkManager.self)
         addServices(service: DataProvider(), for: IDataProvider.self)
         addServices(service: DataStateService(), for: IDataStateService.self)
+        addServices(service: DatabaseManager(), for: IDatabaseManager.self)
     }
 }

@@ -9,7 +9,8 @@ final class Constants {
     static let baseURL = "https://raw.githubusercontent.com/SkbkonturMobile/mobile-test-ios/master/json/"
     
     /// Key to store data actual state
-    static let dataKeyName = "persondata"
+    static let lastDownload = "lastDownload"
+    static let launchTime = "luanchTime"
     
     static let mainGrayColor = UIColor.systemGray2
     

@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(swipeGestureRecognizerDown)
         
         dataProvider.getData{ [weak self] result in
-            
             guard let self = self else {
                 return
             }
@@ -88,7 +87,6 @@ class ViewController: UIViewController {
         }
         alertController!.showAlert(on: self)
     }
-    
 }
 
 extension ViewController: UITableViewDelegate {
@@ -111,8 +109,6 @@ extension ViewController: UITableViewDataSource {
         }
         show(detailVC, sender: nil)
     }
-    
-    
 }
 
 // MARK: searchbar
@@ -123,7 +119,6 @@ extension ViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             persons = personsOrigin
         } else {
-            
             for person in personsOrigin {
                 if person.name.lowercased().contains(searchText.lowercased()) {
                     persons.append(person)

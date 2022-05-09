@@ -6,6 +6,7 @@ struct Person: Codable, Comparable {
     let id: String
     let name: String
     let height: Float
+    @PhoneNumberSanitizer
     var phone: String
     let biography: String
     let temperament: Temperament
