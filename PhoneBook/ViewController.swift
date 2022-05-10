@@ -62,9 +62,7 @@ class ViewController: UIViewController {
             return
         }
         
-        dataProvider.updateData{
-            [weak self] result in
-            
+        dataProvider.updateData{ [weak self] result in
             guard let self = self else {
                 return
             }
@@ -75,7 +73,9 @@ class ViewController: UIViewController {
                     self.contactsTableView.reloadData()
                 }
             case .failure(_):
-                self.showAlert()
+                DispatchQueue.main.async {
+                    self.showAlert()
+                }
             }
         }
     }

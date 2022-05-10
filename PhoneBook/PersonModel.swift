@@ -21,7 +21,7 @@ struct Person: Codable, Comparable {
     }
 }
 
-extension Person: FetchableRecord, MutablePersistableRecord, PersistableRecord {
+extension Person: FetchableRecord, PersistableRecord {
     init(row: Row) {
         id = row["id"]
         name = row["name"]

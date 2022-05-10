@@ -63,9 +63,9 @@ class DataProvider: IDataProvider {
             }
         }
         
-        group.notify(queue: .global(qos: .userInitiated)){ [weak self] in
+        group.notify(queue: .global(qos: .utility)){ [weak self] in
             if isSuccess {
-                self?.databaseManager?.insertData(data: personsData.valueArray.dropLast(personsData.valueArray.count - 10))
+                self?.databaseManager?.insertData(data: personsData.valueArray)
                 self?.dataStateService?.setDownloadDate()
             }
         }    
