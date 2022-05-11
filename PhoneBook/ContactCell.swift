@@ -25,5 +25,9 @@ class ContactCell: UITableViewCell {
         phoneLabel.textColor = Constants.mainGrayColor
         temperamentLabel.text = person.temperament.description
         temperamentLabel.textColor = Constants.mainGrayColor
+        preservesSuperviewLayoutMargins = false
+        separatorInset = UIEdgeInsets.zero
+        layoutMargins = UIEdgeInsets.zero
+        
     }
 }
