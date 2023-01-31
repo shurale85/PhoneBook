@@ -2,14 +2,14 @@ import UIKit
 
 /// Custom alert
 class CustomAlert {
-    private var isShowing: SafeBool = SafeBool()
+    private var isShowing: Bool = false
     
     func showAlert(with text: String = "нет подключения к сети", on viewController: UIViewController){
        
-        guard let targetView = viewController.view, !isShowing.read() else {
+        guard let targetView = viewController.view, !isShowing else {
             return
         }
-        isShowing.write(value: true)
+        isShowing = true
         let alertView = UIView()
         alertView.backgroundColor = .black
         alertView.alpha = 0.5
@@ -27,16 +27,11 @@ class CustomAlert {
         msgView.numberOfLines = 1
         msgView.translatesAutoresizingMaskIntoConstraints = false
         msgView.font = msgView.font.withSize(20)
-        
-        // setting frame does mean nothing since project use Autolayout. Constrains has to be used
-        //        alertView.frame = CGRect(x: 0,
-        //                                 y: 0,
-        //                                 width: targetView.frame.size.width - 20,
-        //                                 height: 70)
         alertView.center = targetView.center
         alertView.addSubview(msgView)
         targetView.addSubview(alertView)
         
+        // constraint example without snp
         NSLayoutConstraint.activate([
             msgView.centerXAnchor.constraint(equalTo: alertView.centerXAnchor),
             msgView.centerYAnchor.constraint(equalTo: alertView.centerYAnchor),
@@ -47,7 +42,7 @@ class CustomAlert {
         ])
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.isShowing.write(value: false)
+            self.isShowing = false
             msgView.removeFromSuperview()
             alertView.removeFromSuperview()
         }

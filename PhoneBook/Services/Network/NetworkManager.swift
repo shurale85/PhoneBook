@@ -3,6 +3,7 @@ import UIKit
 
 /// Stab class for testing
 final class NetworkStab: INetworkManager {
+    // some stab iplementation would go here
 }
 
 final class NetworkManager: INetworkManager{

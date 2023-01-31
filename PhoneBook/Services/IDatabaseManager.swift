@@ -1,11 +1,11 @@
 import UIKit
 
 protocol IDatabaseManager {
-    func insertData(data: [Person])
+    func insertData(data: [PersonDB])
     
     static func setup(for application: UIApplication) throws
     
     func ifTableExists() throws -> Bool
     
-    func fetchData() throws -> [Person]
+    func fetchData() throws -> [PersonDB]
 }

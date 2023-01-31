@@ -4,7 +4,7 @@ import UIKit
 var dbQueue: DatabaseQueue!
 let tableName = Constants.tableName
 
-class DatabaseManager: IDatabaseManager {
+final class DatabaseManager: IDatabaseManager {
     static func setup(for application: UIApplication) throws {
             let databaseURL = try FileManager.default
             .url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -39,17 +39,17 @@ class DatabaseManager: IDatabaseManager {
         }
     }
     
-    func fetchData() throws -> [Person] {
-        try dbQueue.read{db in
-            return try Person.fetchAll(db)
+    func fetchData() throws -> [PersonDB] {
+        try dbQueue.read { db in
+            return try PersonDB.fetchAll(db)
         }
     }
     
-    func insertData(data: [Person]){
+    func insertData(data: [PersonDB]){
         do {
             try dbQueue.write{ db in
                 do {
-                    try Person.deleteAll(db)
+                    try PersonDB.deleteAll(db)
                 } catch {
                 }
                 data.forEach{ person in

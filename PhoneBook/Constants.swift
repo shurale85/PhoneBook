@@ -14,7 +14,7 @@ final class Constants {
     
     static let mainGrayColor = UIColor.systemGray2
     
-    static let tableName = "person"
+    static let tableName = "personDB"
     static let dbName = "personDb"
 }
 

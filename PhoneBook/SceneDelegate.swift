@@ -12,17 +12,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        configureNaviationBar()
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        let rootVC = MainViewController()
+        let navContr = UINavigationController(rootViewController: rootVC)
+        
+        window.rootViewController = navContr
+        window.makeKeyAndVisible()
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -46,6 +47,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    private func configureNaviationBar() {
+        // UINavigationBar
+        UIBarButtonItem.appearance().tintColor = .black
+//        let navigationBarAppearance = UINavigationBar.appearance()
+//        let buttonAppearance = UIBarButtonItemAppearance(style: .plain)
+//        let navigationBarStandartAppearance = UINavigationBarAppearance()
+//        buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.black]
+//        navigationBarStandartAppearance.configureWithOpaqueBackground()
+//        navigationBarStandartAppearance.backgroundEffect = UIBlurEffect(style: .systemThinMaterial)
+////        navigationBarStandartAppearance.titleTextAttributes = [.foregroundColor: Asset.Colors.black.color, .font: FontFamily.Roboto.medium.font(size: 16)]
+////        navigationBarStandartAppearance.largeTitleTextAttributes = [.foregroundColor: Asset.Colors.black.color, .font: FontFamily.Roboto.medium.font(size: 24)]
+//        navigationBarStandartAppearance.shadowColor = .clear
+//        navigationBarStandartAppearance.backButtonAppearance = buttonAppearance
+//        navigationBarStandartAppearance.buttonAppearance = buttonAppearance
+//        if #available(iOS 15.0, *) {
+//            navigationBarStandartAppearance.backgroundColor = . white
+//        }
+//        navigationBarAppearance.standardAppearance = navigationBarStandartAppearance
+//        navigationBarAppearance.isTranslucent = true
+//        navigationBarAppearance.prefersLargeTitles = true
+    }
 
 }
 

@@ -1,6 +1,6 @@
 import Foundation
 
-class DataProvider: IDataProvider {
+final class DataProvider: IDataProvider {
     private let urls = Constants.getUrls()
     
     @Injected<INetworkManager>
@@ -44,7 +44,7 @@ class DataProvider: IDataProvider {
     }
     
     func getPersonsDataFromApi(completion: @escaping (Result<[Person], CustomError>) -> Void) {
-        let personsData: SafeArray<Person> = .init()
+        let personsData: SafeArray<PersonDB> = .init()
         let group = DispatchGroup()
         var isSuccess = false
 
@@ -53,8 +53,9 @@ class DataProvider: IDataProvider {
             networkManager?.fetchData(url: url){ result in
                 switch result {
                 case .success(let data):
-                    personsData.append(data)
+                    personsData.append(data.map({$0.mapToDbEntity()}))
                     completion(.success(data))
+                    // one request was successful at least
                     isSuccess = true
                 case .failure(let err):
                     completion(.failure(err))
@@ -72,13 +73,15 @@ class DataProvider: IDataProvider {
     }
     
     func getPesonsDataFromDB(completion: (Result<[Person], CustomError>) -> Void)  {
-        print("getting fron db")
         guard let databaseManager = databaseManager else {
             return
         }
         do{
             let personsData = try databaseManager.fetchData()
-            completion(.success(personsData.dropLast(personsData.count - 5)))
+            let data = personsData.dropLast(personsData.count - 5)
+            let persons = data.map({ $0.mapToEntity()})
+            
+            completion(.success(persons))
         }
         catch {
             completion(.failure(.errMsg(msg: error.localizedDescription)))

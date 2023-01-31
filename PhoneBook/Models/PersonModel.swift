@@ -19,28 +19,29 @@ struct Person: Codable, Comparable {
     static func < (lhs: Person, rhs: Person) -> Bool {
         lhs.name < rhs.name
     }
-}
-
-extension Person: FetchableRecord, PersistableRecord {
-    init(row: Row) {
-        id = row["id"]
-        name = row["name"]
-        height = row["height"]
-        phone = row["phone"]
-        biography = row["biography"]
-        temperament = row["temperament"]
-        educationPeriod = EducationPeriod(startDate: row["educationStart"], endDate: row["educationEnd"])
+    
+    func mapToDbEntity() -> PersonDB{
+        PersonDB(personModel: self)
     }
     
-    func encode(to container: inout PersistenceContainer) {
-        container["id"] = id
-        container["name"] = name
-        container["phone"] = phone
-        container["height"] = height
-        container["biography"] = biography
-        container["temperament"] = temperament
-        container["educationStart"] = educationPeriod.start
-        container["educationEnd"] = educationPeriod.end
+    init(personDb: PersonDB) {
+        id = personDb.id
+        name = personDb.name
+        height = personDb.height
+        phone = personDb.phone
+        biography = personDb.biography
+        temperament = personDb.temperament
+        educationPeriod = personDb.educationPeriod
+    }
+    
+    init(id: String, name: String, height: Float, phone: String, biography: String, temperament: Temperament, educationPeriod: EducationPeriod) {
+        self.id = id
+        self.name = name
+        self.height = height
+        self.phone = phone
+        self.biography = biography
+        self.temperament = temperament
+        self.educationPeriod = educationPeriod
     }
 }
 
@@ -72,12 +73,12 @@ struct EducationPeriod: Codable, CustomStringConvertible {
         guard let start = start, let end = end else {
             return ""
         }
-        let calendar = Calendar.current
-        var components = calendar.dateComponents([.year, .month, .day], from: start)
-        let startDateString = components.getRuDateRepresentaion()
-        components = calendar.dateComponents([.year, .month, .day], from: end)
-        let endDateString = components.getRuDateRepresentaion()
-        return startDateString + " - " + endDateString
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.YYYY"
+        if !dateFormatter.string(from: start).isEmpty && !dateFormatter.string(from: end).isEmpty {
+            return dateFormatter.string(from: start) + " - " + dateFormatter.string(from: end)
+        }
+        return ""
     }
     
     init(startDate: Date, endDate: Date) {
